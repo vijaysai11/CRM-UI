@@ -1,0 +1,95 @@
+
+<div class="modal fade show" id="registerNewPatient" tabindex="0" role="dialog" style="overflow: auto; outline: none"
+    data-easein="fadeIn" [style.display]="showPopup">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="margin-top: 5%;width:125%; margin-left:-12.5%" >
+            <div id="modalHeader" class="modal-header p-0 m-3">
+                <h2 style="font-size: 20px">Reply To</h2>
+                <i  class="fa fa-remove float-end" style="cursor: pointer;margin-left: 728px;" (click)="onCloseModel()"></i>
+            </div>
+            <form [formGroup]="emailDataForm" (ngSubmit)="sendEmail()" style="padding: 25px;">
+              <div class="form-group">
+                <label for="to">Recipient:</label>
+                <input type="email" id="to"  formControlName="to" >
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" formControlName="subject" >
+              </div>
+              
+                <app-angular-editor [form]="emailDataForm"></app-angular-editor>
+              
+              <div class="form-group">
+                <label for="subject">Contact Status:</label>
+                <input type="text" id="contactStatus" formControlName="contactStatus" >
+              </div>
+              <button type="submit">Send Email</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="table-data">
+  <div class="order">
+    <div class="head">
+      <h3>Contacts</h3>
+      <i class='bx bx-search' ></i>
+      <i class='bx bx-filter' ></i>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Email Address</th>
+          <th>Status</th>
+          <th>Reply All</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="count > 0" style="word-break: break-all;">
+        <tr *ngFor="
+            let row of sentMailsList
+              | paginate
+                : {
+                    id: 'sentEmailsPagination',
+                    itemsPerPage: limit,
+                    currentPage: pageNo,
+                    totalItems: count
+                  }; let i=index
+          ">
+            <td> <p>{{row['id'] || '-'}}</p></td>
+            <td><p>{{row['name'] || '-'}}</p></td>
+            <td ><p>{{row['email'] || '-'}}</p></td>
+            <td ><p>{{row['status'] || '-'}}</p></td>
+
+        
+            <td >  
+                <i class="fa fa-reply-all" aria-hidden="true" title="Reply" (click)="openToReply(row)"></i>
+            </td>
+        </tr>
+    </tbody>
+    </table>
+    <div class="text-center" *ngIf="count == 0">
+      <div class="alert m-5 p-5">
+          <label class='no-data-found'>No Data Found</label>
+      </div>
+  </div>
+  </div>
+  <div class="" *ngIf="count > 0" style="width: 100%">
+    <div class="row" style="width: inherit;display: flex;justify-content: center;align-items: center;">
+        <div class="col-md-6">Total Entries : {{ count }}</div>
+
+        <div class="col-md-6" >
+            <pagination-controls class=" float-end" id="sentEmailsPagination"
+                (pageChange)="pageNo=$event" style="margin-bottom: 0rem!important;">
+            </pagination-controls>
+        </div>
+    </div>
+    
+</div>
+</div>
+
+
+<div class="modal-backdrop show" *ngIf="showPopup =='block'"></div>
+  

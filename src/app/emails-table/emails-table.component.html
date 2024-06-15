@@ -1,0 +1,57 @@
+<div class="table-data">
+    <div class="order">
+      <div class="head">
+        <h3>Emails</h3>
+        <i class='bx bx-search' ></i>
+        <i class='bx bx-filter' ></i>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>From Address</th>
+            <th>To Address</th>
+            <th>Subject</th>
+            <th>Sent Time</th>
+            <th>Forward</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="count > 0" style="word-break: break-all;">
+          <tr *ngFor="
+              let row of sentMailsList
+                | paginate
+                  : {
+                      id: 'sentEmailsPagination',
+                      itemsPerPage: limit,
+                      currentPage: pageNo,
+                      totalItems: count
+                    }; let i=index
+            ">
+              <td> <p>{{row['fromAddress'] || '-'}}</p></td>
+              <td><p>{{row['toAddress'] || '-'}}</p></td>
+              <td ><div class="ellipse">{{row['subject'] || '-'}}</div></td>
+              <td ><div class="">{{row['sentTime'] || '-'}}</div></td>
+          
+              <td >  
+                  <i class="fa fa-share" aria-hidden="true" title="Forward" (click)="openToReply(row.contactId)"></i>
+              </td>
+          </tr>
+      </tbody>
+      </table>
+      <div class="text-center" *ngIf="count == 0">
+        <div class="alert m-5 p-5">
+            <label class='no-data-found'>No Data Found</label>
+        </div>
+    </div>
+    </div>
+    <div class="" *ngIf="count > 0" style="width: 100%">
+        <div class="row" style="width: inherit;display: flex;justify-content: center;align-items: center;">
+          <div class="col-md-6">Total Entries : {{ count }}</div>
+  
+          <div class="col-md-6" >
+              <pagination-controls class="pagi float-end" id="sentEmailsPagination" style="margin-bottom: 0rem!important;"
+                  (pageChange)="pageNo=$event">
+              </pagination-controls>
+          </div>
+      </div>
+  </div>
+  </div>

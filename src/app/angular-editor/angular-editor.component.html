@@ -1,0 +1,20 @@
+<form [formGroup]="form">
+<div class="row form-group row-pad">
+    <div class="col">
+      <label for="body" style="padding-bottom: 10px;">Email Body 
+      </label><span class="textdanger"> *</span><br />
+      <angular-editor formControlName="body" style="min-height: 100px !important;" [config]="editorConfig" #editorInstance></angular-editor>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col">
+        <div class="row">
+            <div style="display: none;margin-left: -1.2%;" id="attachmentIcon" (click)="openFile()">
+                <button class="angular-editor-attach-icon"><i class="fa fa-paperclip fa-lg add-phone"
+                        style="color: black;    transform: rotate(-138deg);"></i></button>
+            </div>
+        </div>
+        
+    </div>
+</div>
+</form>

@@ -1,0 +1,10 @@
+:host ::ng-deep .ngx-pagination {
+    margin-left: 0;
+    margin-bottom: 0rem!important;
+  }
+  .ellipse{
+    white-space: nowrap; 
+    width: 100px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    }

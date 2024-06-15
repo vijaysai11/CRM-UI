@@ -1,0 +1,116 @@
+/* email-form.component.css */
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="email"],
+input[type="text"],
+textarea {
+  width: 50%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+
+/* Modal */
+.custom-fade .modal-dialog {
+  transform: translateY(1%);
+  opacity: 1;
+  -webkit-transition: all 3s ease-out;
+  -o-transition: all 3s ease-out;
+  transition: all 10s ease-out;
+  will-change: transform;
+}
+
+.modal-content {
+  width: 180%;
+  margin-left: -40%;
+}
+
+.modal-backdrop {
+  background-color: black !important;
+}
+
+
+.modal-dialog {
+  max-width: none;
+}
+
+.fa-remove{
+  font-size: 18px!important;
+  margin-bottom: 14px;
+}
+
+.fade .modal-dialog{
+    
+  max-width: 700px !important;
+}
+
+/* table */
+
+.ellipse{
+  white-space: nowrap; 
+  width: 100px; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  }
+
+.textdanger {
+  color: red;
+  font-size: 11px;
+}
+
+
+.modal-backdrop {
+  background-color: black;
+}
+
+.transition {
+  transition: all 10s ease-out;
+  opacity: 1 !important;
+}
+
+.custom-fade .modal-dialog {
+  transform: translateY(1%);
+  opacity: 1;
+  -webkit-transition: all 3s ease-out;
+  -o-transition: all 3s ease-out;
+  transition: all 10s ease-out;
+  will-change: transform;
+}
+
+.modal-content {
+  width: 180%;
+  margin-left: -40%;
+}
+.fade .modal-dialog{
+  
+  max-width: 700px !important;
+}
+
+
+:host ::ng-deep .ngx-pagination {
+  margin-left: 0;
+  margin-bottom: 0rem!important;
+}
